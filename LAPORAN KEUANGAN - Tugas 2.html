@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Keuangan - Borcelle Cake Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffcccc 100%); /* Coral muda untuk latar belakang */
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            background: linear-gradient(90deg, #ff9999 0%, #ff8080 100%); /* Coral muda untuk header */
+            padding: 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .header img {
+            width: 100px;
+            position: absolute;
+            left: 20px;
+            top: 10px; /* Logo dinaikkan dari 20px menjadi 10px */
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            background: #f9f9f9;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .nav-tabs button {
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tabs button:hover, .nav-tabs button.active {
+            color: #ff9999; /* Coral muda untuk tab aktif */
+            border-bottom: 2px solid #ff9999;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .report-section {
+            display: none;
+            animation: slideIn 0.5s ease-in-out;
+        }
+
+        .report-section.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #ff9999; /* Coral muda untuk judul */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 18px;
+            color: #555;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background: #ff9999; /* Coral muda untuk header tabel */
+            color: white;
+            font-weight: 600;
+        }
+
+        td {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .total {
+            font-weight: bold;
+            background: #f9f9f9;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #f9f9f9;
+            border-top: 1px solid #ddd;
+            font-size: 14px;
+            color: #777;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .nav-tabs button {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+
+            th, td {
+                padding: 10px;
+                font-size: 12px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://img.pikbest.com/origin/09/29/16/84wpIkbEsTPtI.png!sw800" alt="Borcelle Cake Shop Logo">
+            <h1>Borcelle Cake Shop</h1>
+            <p>Laporan Keuangan - Kuartal I 2025</p>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="tab-button active" onclick="showTab('neraca')">Neraca</button>
+            <button class="tab-button" onclick="showTab('laba-rugi')">Laba Rugi</button>
+            <button class="tab-button" onclick="showTab('arus-kas')">Arus Kas</button>
+        </div>
+
+        <div class="content">
+            <!-- Neraca -->
+            <div id="neraca" class="report-section active">
+                <h2>Neraca</h2>
+                <h3>Per 31 Maret 2025 (Dalam Rupiah)</h3>
+                <table>
+                    <tr>
+                        <th>Keterangan</th>
+                        <th>Jumlah</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><strong>Aset</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Kas</td>
+                        <td>25.000.000</td>
+                    </tr>
+                    <tr>
+                        <td>Piutang Usaha</td>
+                        <td>2.000.000</td>
+                    </tr>
+                    <tr>
+                        <td>Persediaan (Bahan Baku dan Kue)</td>
+                        <td>10.000.000</td>
+                    </tr>
+                    <tr>
+                        <td>Peralatan (setelah depresiasi)</td>
+                        <td>15.000.000</td>
+                    </tr>
+                    <tr class="total">
+                        <td>Total Aset</td>
+                        <td>52.000.000</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><strong>Liabilitas dan Ekuitas</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Utang Usaha</td>
+                        <td>4.000.000</td>
+                    </tr>
+                    <tr>
+                        <td>Pinjaman Bank</td>
+                        <td>10.000.000</td>
+                    </tr>
+                    <tr>
+                        <td>Modal Awal</td>
+                        <td>28.000.000</td>
+                    </tr>
+                    <tr>
+                        <td>Laba Ditahan</td>
+                        <td>10.000.000</td>
+                    </tr>
+                    <tr class="total">
+                        <td>Total Liabilitas dan Ekuitas</td>
+                        <td>52.000.000</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Laporan Laba Rugi -->
+            <div id="laba-rugi" class="report-section">
+                <h2>Laporan Laba Rugi</h2>
+                <h3>Periode 1 Januari 2025 - 31 Maret 2025 (Dalam Rupiah)</h3>
+                <table>
+                    <tr>
+                        <th>Keterangan</th>
+                        <th>Jumlah</th>
+                    </tr>
+                    <tr>
+                        <td>Penjualan (Kue, Roti, Pesanan Khusus)</td>
+                        <td>60.000.000</td>
+                    </tr>
+                    <tr>
+                        <td>Harga Pokok Penjualan (HPP)</td>
+                        <td>(24.000.000)</td>
+                    </tr>
+                    <tr>
+                        <td>Laba Kotor</td>
+                        <td>36.000.000</td>
+                    </tr>
+                    <tr>
+                        <td>Biaya Operasional</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>  - Gaji Karyawan</td>
+                        <td>(9.000.000)</td>
+                    </tr>
+                    <tr>
+                        <td>  - Sewa Toko</td>
+                        <td>(6.000.000)</td>
+                    </tr>
+                    <tr>
+                        <td>  - Listrik dan Air</td>
+                        <td>(1.500.000)</td>
+                    </tr>
+                    <tr>
+                        <td>Biaya Non-Operasional (Bunga Pinjaman)</td>
+                        <td>(750.000)</td>
+                    </tr>
+                    <tr>
+                        <td>Pajak (10%)</td>
+                        <td>(1.875.000)</td>
+                    </tr>
+                    <tr class="total">
+                        <td>Laba Bersih</td>
+                        <td>16.875.000</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Laporan Arus Kas -->
+            <div id="arus-kas" class="report-section">
+                <h2>Laporan Arus Kas</h2>
+                <h3>Periode 1 Januari 2025 - 31 Maret 2025 (Dalam Rupiah)</h3>
+                <table>
+                    <tr>
+                        <th>Keterangan</th>
+                        <th>Jumlah</th>
+                    </tr>
+                    <tr>
+                        <td>Arus Kas dari Operasional</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>  - Penerimaan dari Pelanggan</td>
+                        <td>58.000.000</td>
+                    </tr>
+                    <tr>
+                        <td>  - Pembayaran kepada Pemasok</td>
+                        <td>(24.000.000)</td>
+                    </tr>
+                    <tr>
+                        <td>  - Pembayaran Biaya Operasional</td>
+                        <td>(16.500.000)</td>
+                    </tr>
+                    <tr>
+                        <td>  - Pembayaran Pajak</td>
+                        <td>(1.875.000)</td>
+                    </tr>
+                    <tr>
+                        <td>Arus Kas dari Investasi (Pembelian Peralatan)</td>
+                        <td>(1.500.000)</td>
+                    </tr>
+                    <tr>
+                        <td>Arus Kas dari Pendanaan</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>  - Pembayaran Bunga Pinjaman</td>
+                        <td>(750.000)</td>
+                    </tr>
+                    <tr>
+                        <td>  - Pembayaran Dividen</td>
+                        <td>(6.875.000)</td>
+                    </tr>
+                    <tr class="total">
+                        <td>Kenaikan Bersih Kas</td>
+                        <td>7.500.000</td>
+                    </tr>
+                    <tr>
+                        <td>Saldo Kas Awal (1 Jan 2025)</td>
+                        <td>17.500.000</td>
+                    </tr>
+                    <tr class="total">
+                        <td>Saldo Kas Akhir (31 Mar 2025)</td>
+                        <td>25.000.000</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="footer">
+            © 2025 Borcelle Cake Shop. All Rights Reserved.
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all sections
+            document.querySelectorAll('.report-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected section and set button as active
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
